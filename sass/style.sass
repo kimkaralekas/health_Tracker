@@ -1,0 +1,168 @@
+@import "compass/css3"
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700)
+@import url(http://weloveiconfonts.com/api/?family=fontawesome)
+@import "compass/utilities/general/clearfix"
+@import "compass/css3"
+
+@mixin breakpoint($break)
+  @if $break == Tablet
+    @media all and (max-width: 64em)
+      @content
+  @else if $break == Phone
+    @media all and (max-width: 29.75em) // I actually don't use this one here, just keeping it for demonstration purposes.
+      @content
+
+$primaryColor: Grey
+$primaryLight: lighten($primaryColor, 50%)
+$accentColor: SteelBlue
+$borderRadius: 5px
+
+body, html
+  font: 400 1em/1 'PT Sans'
+  color: $primaryColor
+  text-align: center
+  -webkit-backface-visibility: hidden
+
+h1
+  font: 400 2em/1 'PT Sans'
+  text-transform: uppercase
+  margin: 1.5em 0 .3em
+
+strike
+  opacity: .5
+  
+h2
+  font: 400 .75em/1 'PT Sans'
+  margin: 0 0 4em
+
+[class*="fontawesome-"]:before
+  font-family: 'FontAwesome', sans-serif
+  color: $accentColor
+  margin-right: .3em
+
+.fontawesome-phone a
+  text-decoration: none
+
+.portrait-container
+  max-width: 1020px
+  margin: 0 auto
+  @include pie-clearfix
+  text-align: center
+  position: relative
+
+$portraitRadius: 100px // Change size of portrait div.
+
+.portrait
+  height: $portraitRadius
+  width: $portraitRadius
+  @include border-radius($portraitRadius / 2)
+  display: inline-block
+  position: relative
+  margin: 1em
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  cursor: pointer
+  @include transition(all .3s)
+  @include filter(grayscale(100%)) // Comment out for a colored version. Or you could add Sepia on top: filter(grayscale(100%) sepia(50%)).
+  &:hover
+    @include filter(grayscale(0))
+
+.portrait-details
+  white-space: nowrap
+  @include breakpoint(Tablet)
+    white-space: normal
+    margin-left: $portraitRadius / 2
+    min-width: $portraitRadius * 1.5
+  cursor: text
+  position: absolute
+  list-style-type: none
+  padding: 0
+  bottom: ($portraitRadius * .7)
+  background: lighten($primaryLight, 65%)
+  border: solid 1px $accentColor
+  @include box-shadow(0 3px 7px 1px rgba(0,0,0,0.3))
+  @include border-radius($borderRadius)
+  @include transition(all .2s ease-in-out)
+  opacity: 0
+  visibility: hidden
+  &:before // Invisible pseudo element to close gap between portrait and list element, preventing flickering of the grayscale filter.
+    content: ''
+    position: absolute
+    height: 2em
+    width: 100%
+    bottom: -2em
+  &:after
+    content: ''
+    display: inline-block
+    background-color: #fff
+    border-bottom: 1px solid $accentColor
+    border-right: 1px solid $accentColor
+    bottom: -6px
+    height: 10px
+    left: 0
+    margin: auto
+    position: absolute
+    right: 0
+    width: 10px
+    @include transform(rotate(45deg))
+
+.show .portrait-details
+  bottom: ($portraitRadius * 1.1)
+  opacity: 1
+  visibility: visible
+
+.portrait-details li
+  color: $primaryColor
+  padding: .3em 1.9em
+  font: 400 .8em/1 'PT Sans'
+  &:first-child
+    font: 700 1em/1 'PT Sans'
+    padding: .6em 1.5em
+    color: #fff
+    border-bottom: solid 1px #fff
+    @include background-image(linear-gradient(left top, $accentColor, lighten($accentColor, 20%)))
+    @include border-top-left-radius($borderRadius - 2)
+    @include border-top-right-radius($borderRadius - 2)
+  &:last-child
+    border-bottom: none
+    padding-bottom: 1.5em
+  &:nth-child(2)
+    color: $primaryColor
+    padding: 1.5em 1.9em .7em
+    font-weight: 700
+  a
+    color: $accentColor
+    cursor: pointer
+
+// Who would've thought it'd be so hard to find decent portrait photography of our leading politicians...
+// If you use this for production make sure there's consistency in your photo material and decide on wether you want a more serious, business approach presentation, or a more familiar, friendly atmosphere with close-ups. Personally I'd always go with the second and would also advice my clients on doing so. The Putin and Reinfeldt portraits are nice examples for this.
+.cameron
+  background-image: url(http://i1.cdnds.net/11/39/showbiz_david_cameron.jpg)
+.rousseff
+  background-image: url(http://res.cloudinary.com/talent/image/fetch/t_face_s270/http://speakerdata.s3.amazonaws.com/photo/image/754064/Dilma_Rousseff.jpg)
+.obama
+  background-image: url(http://upload.wikimedia.org/wikipedia/commons/8/87/Barack_Obama,_official_photo_portrait,_111th_Congress.jpg)
+.jinping
+  background-image: url(http://rotervorhang.de/rotervorhang/wp-content/uploads/2012/12/XJP.jpg)
+.nahyan
+  background-image: url(http://2.bp.blogspot.com/-XNvXg83ZnqU/Uuz0FJ63nQI/AAAAAAAAB2k/RUXwz0bcJ4k/s1600/Capture.JPG)
+.merkel
+  background-image: url(http://www.extremnews.com/images/max_image_view-91eec3ea575847bcaee2136cbf44cbc3.jpg)
+.mukherjee
+  background-image: url(http://www.pardaphash.com/uploads/images/660/60289.jpg)
+.nieto
+  background-image: url(http://arizonalatinos.com/wp-content/uploads/2013/03/Pena-Nieto.jpg)
+.hollande
+  background-image: url(https://lh3.googleusercontent.com/-1KT9xpMRobw/UtS17UydlYI/AAAAAAAAyv4/nRMjdPI3JOs/President-Francois-Hollande-wiki1.jpg)
+.abe
+  background-image: url(http://media0.faz.net/ppmedia/aktuell/2850013975/1.2205368/article_multimedia_overview/shinzo-abe-afrikas-reiche-rohstoffvorkommen-bieten-wichtige-geschaeftsmoeglichkeiten-fuer-das-rohstoffarme-japan.jpg)
+.putin
+  background-image: url(http://dyingrussia.files.wordpress.com/2013/03/putindm_468x658.jpg)
+.reinfeldt
+  background-image: url(http://cdn.c.photoshelter.com/img-get/I0000scjv2U8KsMY/s/750/750/Fredrik-Reinfeldt-2.jpg)
+.zuma
+  background-image: url(http://www.gaystarnews.com/sites/default/files/imagecache/400xY/Jacob_Zuma.jpg)
+.kirchner
+  background-image: url(http://cancerul.net/wp-content/uploads/2011/12/cristina-kirchner.jpg)
