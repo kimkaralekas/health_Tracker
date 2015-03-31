@@ -1,77 +1,49 @@
-<!DOCTYPE HTML>
 <html>
-
-<head>  
+<head>
   <script type="text/javascript">
   window.onload = function () {
     var chart = new CanvasJS.Chart("chartContainer",
     {
-      theme: "theme1",
+
       title:{
-        text: "Weight"
+      text: "Weight"
       },
-      animationEnabled: true,
-      axisX: {
-        valueFormatString: "MMM",
-        interval:1,
-        intervalType: "month"
-        
-      },
-      axisY:{
-        includeZero: false
-        
-      },
-      data: [
-      {        
+       data: [
+      {
         type: "line",
-        //lineThickness: 3,        
+
         dataPoints: [
-       { label: "2002", y: 104 },
-       { label: "2003", y: 29 },
-       { label: "2004", y: 40 },                                    
-       { label: "2005", y: 34 },
-       { label: "2006", y: 24 },
-       { label: "2007", y: 24 },
-       { label: "2008", y: 24 },
-       { label: "2009", y: 24 }, 
-       { label: "2010", y: 24 },
-       { label: "2011", y: 24 },
-       { label: "2012", y: 24 },
-       { label: "2013", y: 24 }, 
-       { label: "2014", y: (108, 110, 108, 108) },
-       { label: "2015", y: 24 }      
+            { x: new Date(2002,8,6), y : 104 },
+            { x: new Date(2006,10,19), y : 118 },
+            { x: new Date(2007,5,15), y : 124 },
+            { x: new Date(2008,3,25), y : 132 },
+            { x: new Date(2008,7,2), y : 130 },
+            { x: new Date(2009,12,22), y : 124 },
+            { x: new Date(2011,7,21), y : 106 },
+            { x: new Date(2011,11,17), y : 111 },
+            { x: new Date(2011,12,8), y : 108 },
+            { x: new Date(2012,4,15), y : 109 },
+            { x: new Date(2012,10,30), y : 111 },
+            { x: new Date(2013,5,13), y : 108 },
+            { x: new Date(2013,6,26), y : 110 },
+            { x: new Date(2013,10,10), y : 109 },
+            { x: new Date(2013,12,2), y : 110 },
+            { x: new Date(2014,9,23), y : 108 },
+            { x: new Date(2014,10,16), y : 110 },
+            { x: new Date(2014,11,11), y : 108 },
+            { x: new Date(2014,12,3), y : 108 },                                   
+            { x: new Date(2015,1,6), y : 108 }
         ]
-      },
-      { //dataSeries - second quarter
+      }
+      ]
+    });
 
-      type: "line",               
-      dataPoints: [
-       { label: "2002", y: 18 },
-       { label: "2003", y: 29 },
-       { label: "2004", y: 40 },                                    
-       { label: "2005", y: 34 },
-       { label: "2006", y: 24 },
-       { label: "2007", y: 24 },
-       { label: "2008", y: 24 },
-       { label: "2009", y: 24 }, 
-       { label: "2010", y: 24 },
-       { label: "2011", y: 24 },
-       { label: "2012", y: 24 },
-       { label: "2013", y: 24 }, 
-       { label: "2014", y: 24 },
-       { label: "2015", y: 24 }      
-        ]
-    }
-    ]
-  });
-
-chart.render();
-}
-</script>
-<script type="text/javascript" src="js/canvasjs.min.js"></script></head>
+    chart.render();
+  }
+  </script>
+ <script type="text/javascript" src="js/canvasjs.min.js"></script></head>
 <body>
   <div id="chartContainer" style="height: 300px; width: 100%;">
   </div>
 </body>
-
 </html>

@@ -29,3 +29,63 @@ $(window).load(function() {
   });
   
 });
+
+
+var chart_1= new CanvasJS.Chart("chartContainer1", {
+    title:{
+        text: "Basic chart with date time values"
+    },
+    axisX:{
+        minimum: new Date(2002,0,1),
+        valueFormatString: "YYYY"
+    },
+    data: [
+        {
+            type: "line",
+            dataPoints: [
+                { x: new Date(2002,6,8), y : 2.0 },
+                { x: new Date(2006,10,19), y : 1.0 },
+                { x: new Date(2007,5,15), y : 1.0 },
+                { x: new Date(2008,3,25), y : 2.0 },
+                { x: new Date(2009,12,22), y : 1.0 },
+                { x: new Date(2011,7,21), y : 2.0 },
+                { x: new Date(2011,11,17), y : 2.0 },
+                { x: new Date(2011,12,8), y : 2.0 },
+                { x: new Date(2012,4,15), y : 2.0 },
+                { x: new Date(2011,10,20), y : 2.0 }
+            ]
+        }
+    ]
+});
+chart_1.render();
+
+// Weight.html script
+
+var chart_1= new CanvasJS.Chart("chartContainer1", {
+    title:{
+        text: "Basic chart with date time values"
+    },
+    axisX:{
+        minimum: new Date(2002,0,1),
+        valueFormatString: "YYYY"
+    },
+    data: [
+        {
+            type: "line",
+            dataPoints: [
+                { x: new Date(2002,6,8), y : 2.0 },
+                { x: new Date(2006,10,19), y : 1.0 },
+                { x: new Date(2007,5,15), y : 1.0 },
+                { x: new Date(2008,3,25), y : 2.0 },
+                { x: new Date(2009,12,22), y : 1.0 },
+                { x: new Date(2011,7,21), y : 2.0 },
+                { x: new Date(2011,11,17), y : 2.0 },
+                { x: new Date(2011,12,8), y : 2.0 },
+                { x: new Date(2012,4,15), y : 2.0 },
+                { x: new Date(2011,10,20), y : 2.0 }
+            ]
+        }
+    ]
+});
+chart_1.render();
+

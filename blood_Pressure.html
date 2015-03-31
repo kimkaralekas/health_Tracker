@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: "Blood Pressure",
+		},
+		exportEnabled: true,
+		axisY: {
+			includeZero:false,
+			prefix: "$",
+			title: "Prices (USD / bbl)",
+		},     
+		axisX: {
+			interval:1,
+			intervalType: "month",
+			valueFormatString: "MMM",
+			title: "January 2013 - December 2013",
+		},
+		data: [
+		{
+			type: "rangeColumn",
+			bevelEnabled: true,
+			dataPoints: [   // Y: [Low, High]
+				{x: new Date(2013,00,01), y:[110.30, 115.55]},
+				{x: new Date(2013,01,01), y:[111.38, 118.90]},
+				{x: new Date(2013,02,01), y:[107.45, 111.61]},
+				{x: new Date(2013,03,01), y:[97.690, 111.08]},
+				{x: new Date(2013,04,01), y:[99.950, 105.46]},
+				{x: new Date(2013,05,01), y:[100.91, 106.12]},
+				{x: new Date(2013,06,01), y:[103.00, 109.40]},
+				{x: new Date(2013,07,01), y:[106.42, 116.61]},
+				{x: new Date(2013,08,01), y:[106.63, 116.12]},
+				{x: new Date(2013,09,01), y:[106.93, 111.80]},
+				{x: new Date(2013,10,01), y:[103.46, 111.31]},
+				{x: new Date(2013,11,01), y:[108.44, 112.62]} 	
+			]
+		}
+		]
+	});
+	chart.render();
+}
+</script>
+<script type="text/javascript" src="js/canvasjs.min.js"></script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+
+
+</html>
